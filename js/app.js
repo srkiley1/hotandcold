@@ -12,7 +12,7 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 	 /*---function for guesses, called "temp"---*/
-       function temp () {
+      function temp () {
       for (i=1;  i=newItem; i++)
 
       if (newItem ==1 || newItem <19) {
