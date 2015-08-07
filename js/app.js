@@ -11,26 +11,46 @@ $(document).ready(function(){
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
-	 /*---function for guesses, called "temp"---*/
-      function temp () {
-      for (i=1;  i=newItem; i++)
+	   
+    var newItem = "";
+    var count = $("#count").val();
+    var winningNumber = 1;
+     $("#guessButton").click(function(){
+        newItem = $('#userGuess').val();
+        count++;  
+        newGame();
+             
+        temp();
+        console.log(newItem);
+    });
 
-      if (newItem ==1 || newItem <19) {
-      console.log("you are warm");
+     /*---function for guesses, called "temp"---*/
+      function temp () {
+      //for (i=1;  i=newItem; i++)
+      if (newItem == winningNumber){
+        $("#feedback").append("you win!");
       }
-      else if(newItem >=20 && newItem <59)
-      console.log("you are lukewarm");
-      
-      else if (newItem >=60 && newItem <81)
-      console.log("you are cold");
-       
-      else  (newItem >=80  && newItem <101 )
-      console.log("you are very cold");
-       
+      else if (newItem <19){
+        $("#feedback").append("you are warm");
+      }
+      else if(newItem >=20 && newItem <59){
+         $("#feedback").append("you are lukewarm");
+      }
+      else if (newItem >=60 && newItem <81){
+         $("#feedback").append("you are cold");
+      }
+      else {
+         $("#feedback").append("you are very cold");
+      }
     }
     /*---variable for the for loop and guesses---*/
-    var newItem = $('#guessbutton').val();
-    temp()
+        function newGame (){
+        $("#feedback").empty();
+             
+        $("#count").empty();
+        $("#count").append(count);    
+        
+      }
 
   });
 
